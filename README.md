@@ -22,6 +22,7 @@ B.Sc. in Electronic and Communications Engineering at Politecnico di Torino
 
 For any problem, issue or comment please send an email to gloria.dalsanto@outlook.it  
 ## References
+Audio demos are published in: [Flutter Echo Modeling](http://research.spa.aalto.fi/publications/papers/dafx22-flutter-echo/)  
 If you would like to use this code, please cite the related research work using the following reference:
 ```
 G. Dal Santo, K. Prawda, and V. Välimäki,, "Flutter Echo Modeling", 
