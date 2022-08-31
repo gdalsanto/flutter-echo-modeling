@@ -53,7 +53,7 @@ expRepTime = 1/expRepTonality;      % expected repetition time t_r
 
 % ----- 2.1 repetition time ----- %
 [repetitionTime, flutteryRange, lateRevTime] = repetition_time('rir_arni_c16c8m6s1.wav', 4, expRepTime, 0);
-repetitionTime = repetitionTime*10;
+
 % derive decay slope simulated by the attenuation filter
 % load the filter coefficents from the data folder
 varNames = ["aH.mat", "aL.mat", "bL.mat", "bH.mat", "peakRT.mat", "kMax.mat"];
@@ -202,4 +202,4 @@ earlyRef = filter(diffRIR(initSilence:end),1,inputSig);
 
 wetGain = 15;
 synthRIR = earlyRef  + lateRev*wetGain; 
-audiowrite(fullfile(dirList(end),'output_10tr.wav'),synthRIR/max(abs(synthRIR)),sampleRate);
+audiowrite(fullfile(dirList(end),'output.wav'),synthRIR/max(abs(synthRIR)),sampleRate);
