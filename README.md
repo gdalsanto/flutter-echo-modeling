@@ -14,13 +14,6 @@ Required toolboxes:
 - signal_toolbox
 - wavelet_toolbox
 
-## Author 
-**Gloria Dal Santo**   
-M.Sc. in Electrical and Electronic Engineering at EPFL  
-B.Sc. in Electronic and Communications Engineering at Politecnico di Torino  
-[Linkedin](https://www.linkedin.com/in/gloriadalsanto/)  
-
-For any problem, issue or comment please send an email to gloria.dalsanto@outlook.it  
 ## References
 Audio demos are published in: [Flutter Echo Modeling](http://research.spa.aalto.fi/publications/papers/dafx22-flutter-echo/)  
 If you would like to use this code, please cite the related research work using the following reference:
