@@ -1,5 +1,5 @@
 function [initPulseWT] = pulse_shape(timeData, repetitionTime, ...
-    lateTime, initSilence, onsetTime, slopeRT, sampleRate)
+    lateTime, initSilence, onsetTime, slopeRT, sampleRate, plotPulse)
 % PULSE_SHAPE return the estimated wavelet tranform of the flutter initial 
 % pulse shape at time onsetTime
 % 
@@ -82,12 +82,14 @@ function [initPulseWT] = pulse_shape(timeData, repetitionTime, ...
     initPulseWT = circshift(initPulseWT,fractTR);
 
     % ------ plot ------- %
-    figure('Position', [0 0 500 300]); clf
-    
-    plot(timeAxis+repetitionTime, initPulseWT/max(abs(initPulseWT)),"Color", [0, 0, 0, 1],'LineWidth',0.1)
-    title('Pulse shape - MRA')
-    xlabel('Time (s)'); ylabel('Amplitude')
-    set(gca,'Fontsize',12,'fontname','Times')
-    axis([repetitionTime 2*repetitionTime -1.1 1.1])
+    if plotPulse
+        figure('Position', [0 0 500 300]); clf
+        
+        plot(timeAxis+repetitionTime, initPulseWT/max(abs(initPulseWT)),"Color", [0, 0, 0, 1],'LineWidth',0.1)
+        title('Pulse shape - MRA')
+        xlabel('Time (s)'); ylabel('Amplitude')
+        set(gca,'Fontsize',12,'fontname','Times')
+        axis([repetitionTime 2*repetitionTime -1.1 1.1])
+    end
 end
 

@@ -1,5 +1,5 @@
 function [repetitionTime, flutteryRange, lateRevTime] = repetition_time( ...
-    filename, octaveBand, expectedRepetitionTime)
+    filename, octaveBand, expectedRepetitionTime, plotEDC)
 % REPETITION_TIME return the repetition time of the flutter echo.
 % This function uses the energy decay curve to find the time spanned by the
 % series of pulses covering a round trip path between the reflective 
@@ -80,25 +80,27 @@ function [repetitionTime, flutteryRange, lateRevTime] = repetition_time( ...
     repetitionTime = mean(diff(locsRange))/sampleRate;
 
     % ------ plot ------- %
-    figure('Renderer', 'painters', 'Position', [10 10 900 300]); clf
-    
-    subplot(1,2,1);
-    plot(timeAxis, -Dvec,"Color", [0, 0, 0, 0.75],'LineWidth',0.1)
-    title('Estimated derivative')
-    xlabel('Time (s)'); ylabel('Amplitude')
-    xline(timeAxis(locs),'--', "LineWidth", 0.5,"Color", [0.3, 0.3, 0.3], "Alpha", 0.5)
-    line([timeAxis(locs(13)) timeAxis(locs(14))], [0.01 0.01 ],"Color", [0, 0, 0], "Marker",'|',"LineWidth",1.5)
-    text((timeAxis(locs(14))+timeAxis(locs(13)))/2-0.005,0.011,'$t_\textrm{r}$','interpreter','latex')
-    axis([0.53 (0.53+10*0.0458) 0 0.015])
-    set(gca,'Fontsize',12,'fontname','Times')
-    
-    subplot(1,2,2);
-    plot(timeAxis, 10*log10(timeDataBand),"Color", [0, 0, 0, 1])
-    title('Enerrgy decay curve')
-    xline(timeAxis(locs),'--', "LineWidth", 0.5,"Color", [0.3, 0.3, 0.3], "Alpha", 0.5)
-    xlabel('Time (s)'); ylabel('Energy (dB)')
-    axis([0.53 (0.53+10*0.0458) -40 -25])
-    set(gca,'Fontsize',12,'fontname','Times')
+    if plotEDC
+        figure('Renderer', 'painters', 'Position', [10 10 900 300]); clf
+        
+        subplot(1,2,1);
+        plot(timeAxis, -Dvec,"Color", [0, 0, 0, 0.75],'LineWidth',0.1)
+        title('Estimated derivative')
+        xlabel('Time (s)'); ylabel('Amplitude')
+        xline(timeAxis(locs),'--', "LineWidth", 0.5,"Color", [0.3, 0.3, 0.3], "Alpha", 0.5)
+        line([timeAxis(locs(13)) timeAxis(locs(14))], [0.01 0.01 ],"Color", [0, 0, 0], "Marker",'|',"LineWidth",1.5)
+        text((timeAxis(locs(14))+timeAxis(locs(13)))/2-0.005,0.011,'$t_\textrm{r}$','interpreter','latex')
+        axis([0.53 (0.53+10*0.0458) 0 0.015])
+        set(gca,'Fontsize',12,'fontname','Times')
+        
+        subplot(1,2,2);
+        plot(timeAxis, 10*log10(timeDataBand),"Color", [0, 0, 0, 1])
+        title('Enerrgy decay curve')
+        xline(timeAxis(locs),'--', "LineWidth", 0.5,"Color", [0.3, 0.3, 0.3], "Alpha", 0.5)
+        xlabel('Time (s)'); ylabel('Energy (dB)')
+        axis([0.53 (0.53+10*0.0458) -40 -25])
+        set(gca,'Fontsize',12,'fontname','Times')
+    end
     
 end
 
