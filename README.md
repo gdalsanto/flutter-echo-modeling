@@ -15,8 +15,8 @@ Required toolboxes:
 - wavelet_toolbox
 
 ## References
-Audio demos are published in: [Flutter Echo Modeling](http://research.spa.aalto.fi/publications/papers/dafx22-flutter-echo/)  
-If you would like to use this code, please cite the related research work using the following reference:
+Audio demos are published in: [Flutter Echo Modeling](http://research.spa.aalto.fi/publications/papers/dafx22-flutter-echo/).  
+If you would like to use this code, please cite the related [DAFx conference paper](https://www.researchgate.net/publication/363487429_Flutter_Echo_Modeling) using the following reference:
 ```
 G. Dal Santo, K. Prawda, and V. Välimäki,, "Flutter Echo Modeling", 
 in Proc. 25rd Int. Conf. Digital Audio Effects (DAFx20in22), Vienna, Austria, Sept. 6–10 2022
